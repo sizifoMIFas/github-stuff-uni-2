@@ -6,6 +6,7 @@
 #include "skaiciavimai.h"
 
 class studentas{
+
     private:
         std::string vardas_;
         std::string pavarde_;
@@ -13,6 +14,7 @@ class studentas{
         int egzrezultatas_;
         double rezvidurkis_;
         double rezmedian_;
+
     public:
         studentas(const std::string& vardas, const std::string& pavarde, const std::vector<int>& ndpazymiai, const int egzrezultatas)
         : vardas_(vardas), pavarde_(pavarde), ndpazymiai_(ndpazymiai), egzrezultatas_(egzrezultatas), rezvidurkis_(vidurkiscalc(ndpazymiai, egzrezultatas)), rezmedian_(mediancalc(ndpazymiai, egzrezultatas)) {}
@@ -21,6 +23,21 @@ class studentas{
         const std::string& pavarde() const {return pavarde_;}
         double rezvidurkis() const {return rezvidurkis_;}
         double rezmedian() const {return rezmedian_;}
+
+        studentas() : egzrezultatas_(0), rezvidurkis_(0), rezmedian_(0) {}
+
+        studentas(const studentas& copy)
+            : vardas_(copy.vardas_), pavarde_(copy.pavarde_) {}
+
+        studentas& operator=(const studentas& copy){
+            if (this != &copy) {
+                vardas_ = copy.vardas_;
+                pavarde_ = copy.pavarde_;
+            }
+            return *this;
+        }
+        ~studentas() {}
+
 };
 
 #ifdef USE_VECTOR
