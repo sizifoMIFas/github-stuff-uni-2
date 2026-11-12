@@ -19,6 +19,8 @@ class studentas{
 
         const std::string& vardas() const {return vardas_;}
         const std::string& pavarde() const {return pavarde_;}
+        double rezvidurkis() const {return rezvidurkis_;}
+        double rezmedian() const {return rezmedian_;}
 };
 
 #ifdef USE_VECTOR
