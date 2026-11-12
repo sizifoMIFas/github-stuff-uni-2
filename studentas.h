@@ -3,14 +3,22 @@
 #include <vector>
 #include <list>
 #include <algorithm>
+#include "skaiciavimai.h"
 
-struct studentas{
-    std::string vardas;
-    std::string pavarde;
-    std::vector<int> ndpazymiai;
-    int egzrezultatas;
-    double rezvidurkis;
-    double rezmedian;
+class studentas{
+    private:
+        std::string vardas_;
+        std::string pavarde_;
+        std::vector<int> ndpazymiai_;
+        int egzrezultatas_;
+        double rezvidurkis_;
+        double rezmedian_;
+    public:
+        studentas(const std::string& vardas, const std::string& pavarde, const std::vector<int>& ndpazymiai, const int egzrezultatas)
+        : vardas_(vardas), pavarde_(pavarde), ndpazymiai_(ndpazymiai), egzrezultatas_(egzrezultatas), rezvidurkis_(vidurkiscalc(ndpazymiai, egzrezultatas)), rezmedian_(mediancalc(ndpazymiai, egzrezultatas)) {}
+
+        const std::string& vardas() const {return vardas_;}
+        const std::string& pavarde() const {return pavarde_;}
 };
 
 #ifdef USE_VECTOR
