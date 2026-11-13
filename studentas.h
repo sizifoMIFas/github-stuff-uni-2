@@ -27,12 +27,16 @@ class studentas{
         studentas() : egzrezultatas_(0), rezvidurkis_(0), rezmedian_(0) {}
 
         studentas(const studentas& copy)
-            : vardas_(copy.vardas_), pavarde_(copy.pavarde_) {}
+            : vardas_(copy.vardas_), pavarde_(copy.pavarde_), ndpazymiai_(copy.ndpazymiai_), egzrezultatas_(copy.egzrezultatas_), rezvidurkis_(copy.rezvidurkis_), rezmedian_(copy.rezmedian_) {}
 
         studentas& operator=(const studentas& copy){
             if (this != &copy) {
                 vardas_ = copy.vardas_;
                 pavarde_ = copy.pavarde_;
+                ndpazymiai_ = copy.ndpazymiai_;
+                egzrezultatas_ = copy.egzrezultatas_;
+                rezvidurkis_ = copy.rezvidurkis_;
+                rezmedian_ = copy.rezmedian_;
             }
             return *this;
         }
