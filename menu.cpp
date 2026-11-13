@@ -1,7 +1,7 @@
-#include "menu.h"
 #include <iomanip>
 #include <iostream>
 #include <string>
+#include "menu.h"
 using namespace std;
 
 void printHeader(ostream& out){
@@ -18,10 +18,10 @@ void printHeader(ostream& out){
 void results(studentas s, ostream& out){
 
     out << left
-    << setw(20) << s.pavarde
-    << setw(20) << s.vardas
-    << setw(20) << s.rezvidurkis
-    << setw(20) << s.rezmedian << endl;
+    << setw(20) << s.pavarde()
+    << setw(20) << s.vardas()
+    << setw(20) << s.rezvidurkis()
+    << setw(20) << s.rezmedian() << endl;
 
 }
 

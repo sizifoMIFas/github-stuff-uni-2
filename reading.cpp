@@ -35,7 +35,6 @@ konteineris fileread(std::string file){
 
         if (visiSkaiciai.empty()) continue;
 
-
         int egzrezultatas = visiSkaiciai.back();
         visiSkaiciai.pop_back();
         sarasas.push_back(studentas(vardas, pavarde, visiSkaiciai, egzrezultatas));
