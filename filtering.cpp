@@ -12,7 +12,7 @@ pair<konteineris, konteineris> studentsplit(const konteineris& visistudentai){
     konteineris nelaimingi;
 
     for (const auto& s : visistudentai){
-        if (s.rezvidurkis < 5){
+        if (s.rezvidurkis() < 5){
             nelaimingi.push_back(s);
         } else {
             nerdai.push_back(s);
@@ -30,7 +30,7 @@ konteineris studentsplit2(konteineris& visistudentai){
 
     auto it = visistudentai.begin();
     while (it != visistudentai.end()){
-        if (it->rezvidurkis < 5){
+        if (it->rezvidurkis() < 5){
             nelaimingi.push_back(*it);
             it = visistudentai.erase(it);
         } else {
@@ -45,7 +45,7 @@ konteineris studentsplit2(konteineris& visistudentai){
 konteineris studentsplit3(konteineris& visistudentai){
 
     auto riba = std::stable_partition(visistudentai.begin(), visistudentai.end(),
-        [](const studentas& s){ return s.rezvidurkis >= 5; });
+        [](const studentas& s){ return s.rezvidurkis() >= 5; });
 
     konteineris nelaimingi(riba, visistudentai.end());
 
@@ -61,14 +61,14 @@ void gradedfiles(konteineris& nerdai, konteineris& nelaimingi, string pavadinima
     ofstream failas1(nerdfile);
 
     for (const auto& s : nerdai){
-        failas1 << s.vardas << " " << s.pavarde << " " << s.rezvidurkis << " " << s.rezmedian << "\n";
+        failas1 << s.vardas() << " " << s.pavarde() << " " << s.rezvidurkis() << " " << s.rezmedian() << "\n";
     }
 
     string nelaimingifile = "nelaimingi_" + pavadinimas;
     ofstream failas2(nelaimingifile);
 
     for (const auto& s : nelaimingi){
-        failas2 << s.vardas << " " << s.pavarde << " " << s.rezvidurkis << " " << s.rezmedian << "\n";
+        failas2 << s.vardas() << " " << s.pavarde() << " " << s.rezvidurkis() << " " << s.rezmedian() << "\n";
     }
 
 }
