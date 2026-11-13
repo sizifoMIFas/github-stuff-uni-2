@@ -62,14 +62,7 @@ int main(){
                 egzrezultatas = 1 + (rd() % 10);
             }
 
-            studentas s;
-            s.vardas = vardas;
-            s.pavarde = pavarde;
-            s.ndpazymiai = ndpazymiai;
-            s.egzrezultatas = egzrezultatas;
-            s.rezvidurkis = vidurkiscalc(ndpazymiai, egzrezultatas);
-            s.rezmedian = mediancalc(ndpazymiai, egzrezultatas);
-            visistudentai.push_back(s);
+            visistudentai.push_back(studentas(vardas, pavarde, ndpazymiai, egzrezultatas));
             results(visistudentai.back());
             cout << "saugojimo adresas atmintyje: " << &visistudentai.back() << endl;
         }
