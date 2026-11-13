@@ -1,9 +1,9 @@
-#include "reading.h"
 #include <fstream>
 #include <iostream>
+#include <sstream>
 #include "skaiciavimai.h"
 #include "studentas.h"
-#include <sstream>
+#include "reading.h"
 
 using namespace std;
 
@@ -23,23 +23,22 @@ konteineris fileread(std::string file){
         if (eilute.empty()) continue;
 
         stringstream ss(eilute);
-        studentas s;
-        ss >> s.pavarde >> s.vardas;
+        string pavarde, vardas;
+        ss >> pavarde >> vardas;
 
         vector<int> visiSkaiciai;
         int skaicius;
+        
         while (ss >> skaicius) {
             visiSkaiciai.push_back(skaicius);
         }
 
         if (visiSkaiciai.empty()) continue;
 
-        s.egzrezultatas = visiSkaiciai.back();
+
+        int egzrezultatas = visiSkaiciai.back();
         visiSkaiciai.pop_back();
-        s.ndpazymiai = visiSkaiciai;
-        s.rezvidurkis = vidurkiscalc(s.ndpazymiai, s.egzrezultatas);
-        s.rezmedian = mediancalc(s.ndpazymiai, s.egzrezultatas);
-        sarasas.push_back(s);
+        sarasas.push_back(studentas(vardas, pavarde, visiSkaiciai, egzrezultatas));
         
     }
 
